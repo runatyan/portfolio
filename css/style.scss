@@ -1,0 +1,1725 @@
+@charset "utf-8";
+
+@mixin mq-pc() {
+    @media (min-width:960px) {
+        @content;
+    }
+}
+
+@mixin inner($w: 1480) {
+    max-width: $w + px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@function rem($value) {
+    @return ($value/16)+rem;
+}
+
+@mixin flex($a: center, $j: space-between) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $j;
+    align-items: $a;
+}
+
+@mixin img() {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin title() {
+    position: absolute;
+    top: 12vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: rem(80);
+    letter-spacing: 0.1em;
+    font-weight: normal;
+}
+
+body {
+    font-family: '游明朝', 'Yu Mincho', YuMincho, 'Hiragino Mincho Pro', serif;
+    line-height: (32/16);
+    min-height: auto;
+    text-rendering: auto;
+    color: #fff;
+    letter-spacing: 0.08em;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+
+
+path {
+    fill: none;
+    stroke-width: 1;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+    -webkit-animation: DASH 0.8s forwards ease-in-out alternate;
+    animation: DASH 0.8s forwards ease-in-out alternate;
+}
+
+.bl_loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+    z-index: 999;
+}
+
+.bl_loading.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.bl_loading.loaded.none {
+    display: none;
+}
+
+
+
+@-webkit-keyframes DASH {
+    0% {
+        fill: rgba(255, 255, 255, 0);
+        stroke-dashoffset: 3000;
+    }
+
+    100% {
+        fill: #fff;
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes DASH {
+    0% {
+        fill: rgba(255, 255, 255, 0);
+        stroke-dashoffset: 3000;
+    }
+
+    100% {
+        fill: #fff;
+        stroke-dashoffset: 0;
+    }
+}
+
+
+.header {
+    padding: (40/16)+em 0 0 0;
+    position: fixed;
+    z-index: 999;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__logobox {
+        width: 35%;
+
+        @include mq-pc() {
+            width: 20%
+        }
+    }
+
+    &__box {
+        @include flex();
+    }
+}
+
+
+.footer {
+    background-color: #303030;
+    padding: (32/16)+em 0;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__logo {
+        width: 50%;
+        margin: 0 auto (32/16)+em auto;
+
+        @include mq-pc() {
+            width: 20%;
+            margin: 0 auto;
+        }
+    }
+
+    &__list {
+        display: none;
+
+        @include mq-pc() {
+            @include flex();
+            padding: 0;
+            justify-content: center;
+            margin: (16/16)+em 0 (32/16)+em 0;
+        }
+    }
+
+    &__item {
+        margin: 0 (32/16)+em;
+    }
+
+    &__link {
+        color: #fff;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 2px;
+            bottom: 0;
+            margin: auto;
+            height: 1px;
+            background: #fff;
+            width: calc(100% + 8px);
+            transform: translate(-100%, 0);
+            transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
+        }
+
+        &:hover::before {
+            transform: translate(0, 0);
+        }
+    }
+
+    &__copy {
+        text-align: center;
+    }
+}
+
+.visual {
+
+    &__box {
+        position: relative;
+    }
+
+    &__title {
+        position: absolute;
+        top: 60vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: rem(100);
+        text-align: center;
+        font-weight: normal;
+        width: 80%;
+
+        @include mq-pc() {
+            width: 100%;
+        }
+    }
+
+    &__logo {
+        margin: 0 auto;
+    }
+
+    &__list {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+    }
+
+    &__img {
+        @include img();
+    }
+}
+
+.t-about {
+    background: url(../img/DSCF6441.jpg) no-repeat center center/cover;
+    position: relative;
+
+    @include mq-pc() {
+        background: #a2a4a8;
+    }
+
+    &__box {
+        position: relative;
+        display: none;
+
+        @include mq-pc() {
+            @include flex();
+        }
+    }
+
+    &__left {
+        width: 50%;
+        height: 100vh;
+    }
+
+    &__right {
+        width: 50%;
+        height: 100vh;
+    }
+
+    &__inner {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: (160/16)+em (40/16)+em (48/16)+em 0;
+    }
+
+    &__title {
+        @include title();
+    }
+
+    &__img {
+        @include img();
+    }
+
+    &__name {
+        font-size: rem(24);
+        margin-bottom: (24/24)+em;
+        font-weight: normal;
+    }
+
+    &__name::after {
+        content: "YOKOKURA NARUYOSHI";
+        font-size: rem(13);
+        // margin-left: (26/13)+em;
+        letter-spacing: 0.1em
+    }
+
+    &__detail {
+        font-size: rem(15);
+        margin-bottom: (15/15)+em
+    }
+
+    &__list {
+        @include flex();
+        padding: (32/16)+em 0;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        margin-bottom: (32/16)+em;
+    }
+
+    &__item {
+        width: 45%;
+    }
+
+    &__btn {
+        display: block;
+        width: 40%;
+        padding: (8/16)+em 0;
+        border: 1px solid #fff;
+        text-align: center;
+        color: #fff;
+        margin-left: auto;
+
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            background-color: #fff;
+            border: 1px solid #a2a4a8;
+            color: #a2a4a8;
+        }
+    }
+
+    &__mb {
+        text-align: center;
+        position: absolute;
+        left: 0;
+        bottom: 100px;
+        transform: translate(0, -50%);
+        width: 100%;
+
+        @include mq-pc() {
+            display: none;
+        }
+    }
+
+    &-mb {
+
+        &__title {
+            font-size: rem(50);
+            letter-spacing: 0.1em;
+
+        }
+
+        &__btn {
+            width: 50%;
+            padding: (10/16)+em 0;
+            border: 1px solid #fff;
+            display: block;
+            margin: 0 auto;
+            line-height: 1;
+        }
+    }
+}
+
+.t-work {
+    background: #ccc8bd; //#6aa7ab
+
+    &__box {
+        position: relative;
+    }
+
+    &__title {
+        font-size: rem(50);
+        text-align: center;
+        padding-top: (30/50)+em;
+
+        @include mq-pc() {
+            @include title();
+        }
+    }
+
+    &__img {
+        @include img();
+    }
+
+    &__link {
+        @include img();
+    }
+}
+
+.t-contact {
+    background: url(../img/DSCF6442.JPG) no-repeat center center/cover;
+    position: relative;
+
+    @include mq-pc() {
+        background: #a2a4a8;
+    }
+
+    &__box {
+        position: relative;
+        display: none;
+
+        @include mq-pc() {
+            @include flex();
+        }
+    }
+
+    &__inner {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 7.5%;
+    }
+
+    &__left {
+        width: 50%;
+        height: 100vh;
+    }
+
+    &__right {
+        width: 50%;
+        height: 100vh;
+        display: table;
+    }
+
+    &__title {
+        @include title();
+    }
+
+    &__img {
+        @include img();
+    }
+
+    &__subtitle {
+        font-size: rem(30);
+        font-weight: normal;
+        margin-bottom: (20/30)+em;
+    }
+
+    &__mail {
+        font-size: rem(18);
+        margin-bottom: (20/18)+em;
+    }
+
+    &__btn {
+        width: 50%;
+        padding: (14/16)+em 0;
+        border: 1px solid #fff;
+        display: block;
+        line-height: 1;
+        text-align: center;
+        margin-top: (16/16)+em;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            background-color: #fff;
+            border: 1px solid #a2a4a8;
+            color: #a2a4a8;
+        }
+    }
+
+    &__mb {
+        text-align: center;
+        position: absolute;
+        left: 0;
+        bottom: 100px;
+        transform: translate(0, -50%);
+        width: 100%;
+
+        @include mq-pc() {
+            display: none;
+        }
+    }
+
+    &-mb {
+
+        &__title {
+            font-size: rem(50);
+            letter-spacing: 0.1em;
+
+        }
+
+        &__mail {
+            font-size: rem(16);
+            margin-bottom: (10/16)+em;
+        }
+
+        &__btn {
+            width: 50%;
+            padding: (10/16)+em 0;
+            border: 1px solid #fff;
+            display: block;
+            margin: 0 auto;
+            line-height: 1;
+        }
+    }
+}
+
+/* .code {
+    background: rgba(0, 0, 0, 0.2);
+} */
+
+
+.pagination {
+    position: fixed;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 1.4em;
+    z-index: 10;
+
+    @include mq-pc() {
+        right: 10px;
+    }
+}
+
+.pagination a {
+    display: block;
+    height: 20px;
+    margin-bottom: 5px;
+    color: white;
+    position: relative;
+    padding: 4px;
+}
+
+.pagination a.active:after {
+    box-shadow: inset 0 0 0 5px;
+}
+
+.pagination a .hover-text {
+    position: absolute;
+    right: 15px;
+    top: -15px;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+    padding-right: 15px;
+}
+
+.pagination a:hover .hover-text {
+    opacity: 1;
+}
+
+.pagination a:after {
+    -webkit-transition: box-shadow 0.5s ease;
+    transition: box-shadow 0.5s ease;
+    width: 10px;
+    height: 10px;
+    display: block;
+    border: 1px solid;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 4px;
+    bottom: 0;
+}
+
+.frame {
+    &__title {
+        font-size: rem(12);
+
+        @include mq-pc() {
+            font-size: rem(16);
+        }
+    }
+
+    &__top {
+        width: 100%;
+        height: 25px;
+        position: fixed;
+        background-color: #000;
+        z-index: 10;
+        text-align: center;
+        letter-spacing: 0.1em;
+
+        @include mq-pc() {
+            height: 40px;
+        }
+    }
+
+    &__left {
+        width: 25px;
+        height: 100vh;
+        position: fixed;
+        background-color: #000;
+        z-index: 10;
+
+        @include mq-pc() {
+            width: 40px;
+        }
+    }
+
+    &__right {
+        width: 25px;
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        background-color: #000;
+        z-index: 10;
+
+        @include mq-pc() {
+            width: 40px;
+        }
+    }
+
+    &__bottom {
+        width: 100%;
+        height: 25px;
+        position: fixed;
+        bottom: 0;
+        background-color: #000;
+        z-index: 10;
+
+        @include mq-pc() {
+            height: 40px;
+        }
+    }
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    padding: (80/16)+em 60px 0 60px;
+    position: relative;
+
+    @include mq-pc() {
+        padding: (256/16)+em 60px 0 60px;
+    }
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50vh;
+    overflow: hidden;
+
+    &:hover img {
+        transition: all, 0.5s;
+        transform: scale(1.1);
+    }
+}
+
+.swiper-wrapper {
+    height: auto;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #fff;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets {
+    bottom: 50vh;
+
+    @include mq-pc() {
+        bottom: 10vh;
+    }
+}
+
+.swiper-button-prev {
+    top: 6%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+
+    &::after {
+        font-size: rem(30);
+    }
+
+    @include mq-pc() {
+        top: 30%;
+    }
+}
+
+.swiper-button-next {
+    top: 6%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+
+    &::after {
+        font-size: rem(30);
+    }
+
+    @include mq-pc() {
+        top: 30%;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*-----------------------------------------------------------*/
+.about {
+    color: #000;
+    padding: (128/16)+em 0;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__box {
+        @include flex();
+        flex-direction: column-reverse;
+
+        @include mq-pc() {
+            flex-direction: unset;
+        }
+    }
+
+    &__profile {
+        font-size: rem(14);
+        margin-top: (20/14)+em;
+
+        @include mq-pc() {
+            width: 45%;
+        }
+    }
+
+    &__nameimg {
+        transform: rotate(-10deg);
+    }
+
+    &__name {
+        font-size: rem(20);
+        margin-bottom: (60/20)+em;
+        display: none;
+
+        @include mq-pc() {
+            display: block;
+        }
+    }
+
+    &__surname {
+        font-size: rem(20);
+        margin-bottom: (10/20)+em;
+        font-weight: normal;
+
+        &::after {
+            content: "YOKOKURA NARUYOSHI";
+            font-size: rem(10);
+            margin-left: (20/10)+em;
+        }
+    }
+
+    &__profession {
+        margin-bottom: (40/14)+em;
+    }
+
+    &__imgbox {
+        width: 100%;
+        height: 50vh;
+        position: relative;
+
+        @include mq-pc() {
+            width: 50%;
+            height: 70vh;
+        }
+    }
+
+    &__img {
+        @include img();
+    }
+
+    &__sign {
+        position: absolute;
+        top: -50px;
+        right: -8px;
+        transform: rotate(-10deg);
+        width: 80%;
+
+        @include mq-pc() {
+            display: none;
+        }
+    }
+}
+
+.history {
+    position: relative;
+    padding-top: 100px;
+    min-height: 100dvh;
+    min-height: 100vh;
+    //background-color: var(--black);
+    //color: var(--white);
+    background-color: #333;
+    color: #fff;
+    overflow: hidden;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__wrapper {
+        margin-bottom: 46px;
+    }
+
+    &__container {
+        position: relative;
+        width: 100%;
+        height: 285px;
+    }
+
+    &__list {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        gap: 90px;
+        padding: 0;
+    }
+
+    &__item {
+        position: relative;
+        z-index: 1;
+        width: 240px;
+
+        &:last-of-type.history__point::after {
+            width: 500px;
+        }
+    }
+
+    &__item:last-of-type {
+        margin-right: 75px;
+    }
+
+    &__title {
+        font-size: rem(36);
+        margin-bottom: (20/36)+em;
+
+        @include mq-pc() {
+            font-size: rem(50);
+            margin-bottom: (20/50)+em;
+        }
+    }
+
+    &__time {
+        margin-bottom: (10/14)+em;
+        font-size: rem(14);
+
+        @include mq-pc() {
+            font-size: rem(16);
+            margin-bottom: (10/16)+em;
+        }
+    }
+
+    &__heading {
+        font-size: rem(18);
+        margin-bottom: (40/18)+em;
+
+        @include mq-pc() {
+            font-size: rem(20);
+            margin-bottom: (40/20)+em;
+        }
+    }
+
+    &__text {
+        font-size: rem(13);
+
+        @include mq-pc() {
+            font-size: rem(16);
+        }
+    }
+
+    &__point {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #fff;
+        margin-bottom: (30/16)+em;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 7px;
+            left: 0;
+            z-index: -1;
+            width: 440px;
+            height: 1px;
+            background-color: #fff;
+
+        }
+    }
+
+    &__item:last-of-type.history__point::after {
+        width: 500px;
+    }
+}
+
+@media (min-width: 768px) {
+    .history {
+        padding: (80/16)+em 0;
+        background-color: #333;
+        color: #fff;
+    }
+
+    .history::before {
+        width: 45vw;
+    }
+
+    .history__inner {
+        @include inner();
+    }
+
+    .history__wrapper {
+        margin-bottom: 0;
+    }
+
+    .history__container {
+        height: 350px;
+    }
+
+    .history__list {
+        gap: 140px;
+    }
+
+    .history__item {
+        width: 300px;
+    }
+
+    .history__item:last-of-type {
+        margin-right: 120px;
+    }
+}
+
+
+.thought {
+    color: #000;
+    padding: (80/16)+em 0;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__box {
+        margin-bottom: (60/16)+em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__title {
+        font-size: rem(36);
+        margin-bottom: (20/36)+em;
+
+        @include mq-pc() {
+            font-size: rem(50);
+            margin-bottom: (20/50)+em;
+        }
+    }
+
+    &__catch {
+        font-size: rem(20);
+        margin-bottom: (40/20)+em;
+        font-weight: normal;
+        letter-spacing: 0.2em;
+
+        @include mq-pc() {
+            font-size: rem(28);
+            margin-bottom: (40/28)+em;
+            font-weight: normal;
+            letter-spacing: 0.2em;
+        }
+    }
+
+    &__text {
+        line-height: 2.5em;
+        font-size: rem(14);
+
+        @include mq-pc() {
+            font-size: rem(16);
+        }
+    }
+}
+
+.skill {
+    color: #000;
+    padding: (80/16)+em 0;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        font-size: rem(36);
+        margin-bottom: (20/36)+em;
+
+        @include mq-pc() {
+            font-size: rem(50);
+            margin-bottom: (20/50)+em;
+        }
+    }
+
+    &__list {
+        @include flex();
+        align-items: baseline;
+    }
+
+    &__item {
+        margin-bottom: (40/16)+em;
+
+        @include mq-pc() {
+            width: 40%;
+        }
+    }
+
+    &__ability {
+        font-size: rem(20);
+        display: inline-block;
+        border-bottom: 1px solid #000;
+        margin-bottom: (20/20)+em;
+
+        @include mq-pc() {
+            font-size: rem(30);
+            margin-bottom: (20/30)+em;
+        }
+    }
+
+    &__text {
+        font-size: rem(14);
+
+        @include mq-pc() {
+            font-size: rem(16);
+        }
+    }
+}
+
+.comment {
+    color: #000;
+    padding: (80/16)+em 0;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        font-size: rem(36);
+        margin-bottom: (20/36)+em;
+
+        @include mq-pc() {
+            font-size: rem(50);
+            margin-bottom: (20/50)+em;
+        }
+    }
+
+    &__content {
+        margin: 0 auto;
+
+        @include mq-pc() {
+            width: 70%;
+        }
+    }
+
+    &__text {
+        margin-bottom: (32/14)+em;
+        font-size: rem(14);
+
+        @include mq-pc() {
+            font-size: rem(16);
+            margin-bottom: (32/16)+em;
+        }
+    }
+}
+
+
+
+
+
+/*
+hamburger(ハンバーガーアイコン)
+=================================== */
+.hamburger {
+    position: fixed;
+    right: 25px;
+    top: 25px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 300;
+    background-color: #000;
+
+    @include mq-pc() {
+        right: 40px;
+        top: 40px;
+    }
+}
+
+.hamburger__line {
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    right: 0;
+    background-color: #fff;
+    transition: all 0.5s;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.hamburger__line--1 {
+    top: 7px;
+}
+
+.hamburger__line--2 {
+    top: 19px;
+}
+
+.hamburger__line--3 {
+    top: 30px;
+}
+
+/*ハンバーガーがクリックされたら*/
+.open .hamburger__line--1 {
+    transform: rotate(-45deg);
+    top: 17px;
+    left: 20%;
+}
+
+.open .hamburger__line--2 {
+    opacity: 0;
+}
+
+.open .hamburger__line--3 {
+    transform: rotate(45deg);
+    top: 17px;
+    left: 20%;
+}
+
+/*
+sp-nav(ナビ)
+=================================== */
+.sp-nav {
+    position: fixed;
+    right: 0;
+    /*ハンバーガーがクリックされる前はWindow右側に隠す*/
+    top: 130vh;
+    width: 100%;
+    /* 出てくるスライドメニューの幅 */
+    height: 100vh;
+    background-color: #fff;
+    transition: all 0.5s ease-in-out;
+    z-index: 200;
+    overflow-y: auto;
+    /* メニューが多くなったらスクロールできるように */
+
+    @include flex();
+    justify-content: flex-start;
+}
+
+/*ハンバーガーがクリックされたら右からスライド*/
+.open .sp-nav {
+    top: 0;
+}
+
+.sp {
+    &__imgbox {
+        width: 25vw;
+        height: 100vh;
+    }
+
+    &__img {
+        @include img();
+    }
+}
+
+.nav {
+    width: 60%;
+    color: #000;
+    padding-left: 15vw;
+
+    &__imgbox {
+        width: 80%;
+        margin-bottom: (80/16)+em;
+    }
+
+    &__link {
+        color: #000;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 2px;
+            bottom: 0;
+            margin: auto;
+            height: 2px;
+            background: #303030;
+            width: calc(100% + 8px);
+            transform: translate(-100%, 0);
+            transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s;
+        }
+
+        &:hover::before {
+            transform: translate(0, 0);
+        }
+    }
+
+    &__list {
+        padding: 0;
+    }
+
+    &__item {
+        font-size: rem(35);
+        margin-bottom: (25/35)+em;
+    }
+}
+
+
+
+
+.work {
+    padding: (80/16)+em 0;
+    color: #000;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        font-size: rem(60);
+        margin-bottom: (80/60)+em;
+        border-bottom: 1px solid #000;
+    }
+
+    &__list {
+        @include mq-pc() {
+            @include flex();
+        }
+    }
+
+    &__item {
+        margin-bottom: (40/16)+em;
+
+        @include mq-pc() {
+            width: 45%;
+            margin-bottom: (40/16)+em;
+
+            &:nth-child(2n) {
+                margin-top: (100/16)+em;
+            }
+        }
+    }
+
+    &__link {
+        &:hover .work__imgbox img {
+            transition: all, 0.5s;
+            transform: scale(1.05);
+        }
+    }
+
+    &__imgbox {
+        width: 100%;
+        height: 40vh;
+        margin-bottom: (22/16)+em;
+        overflow: hidden;
+    }
+
+    &__img {
+        @include img();
+    }
+
+    &__intro {
+        font-size: rem(20);
+        font-weight: normal;
+        line-height: 1;
+        margin-bottom: (13/20)+em;
+        letter-spacing: 0.13em;
+        color: #303030;
+    }
+
+    &__category {
+        font-size: rem(12);
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        color: #303030;
+
+        &::before {
+            content: '';
+            width: 10px;
+            margin-right: 10px;
+            height: 1px;
+            background: #686868;
+            opacity: .5;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+.single {
+    color: #000;
+    padding: (112/16)+em 0;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__visual {
+        margin: (48/16)+em auto;
+
+        @include mq-pc() {
+            width: 80%;
+        }
+    }
+
+    &__btn {
+        display: block;
+        width: 80%;
+        font-size: rem(20);
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: (20/20)+em 0;
+        color: #000;
+        text-align: center;
+        margin: 0 auto (60/20)+em auto;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            background-color: #000;
+            border: 1px solid #000;
+            color: #fff;
+        }
+
+        @include mq-pc() {
+            margin: 0;
+        }
+    }
+
+    &__title {
+        font-size: rem(30);
+        letter-spacing: 0.1em;
+        line-height: 1;
+        margin-bottom: (20/30)+em;
+
+        @include mq-pc() {
+            font-size: rem(60);
+            margin-bottom: (20/60)+em;
+        }
+    }
+
+    &__category {
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        color: #303030;
+
+        &::before {
+            content: '';
+            width: 10px;
+            margin-right: 10px;
+            height: 1px;
+            background: #686868;
+            opacity: .5;
+        }
+    }
+
+    &__box {
+        margin: (48/16)+em 0 (80/16)+em 0;
+
+        @include mq-pc() {
+            @include flex();
+            align-items: flex-end;
+        }
+    }
+
+    &__description {
+
+        @include mq-pc() {
+            width: 45%;
+        }
+    }
+
+    &__date {
+        @include flex();
+        align-items: flex-start;
+        margin-bottom: (10/16)+em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__detail {
+        width: 60%;
+    }
+
+    &__catch {
+        line-height: 2.5em;
+
+        @include mq-pc() {
+            width: 75%;
+            margin: 0 auto;
+        }
+    }
+}
+
+
+.loop03 {
+    overflow: hidden;
+}
+
+.loop03__box {
+    display: flex;
+    width: 100vw;
+    color: transparent;
+    -webkit-text-stroke: 1px #000;
+    font-weight: bold;
+}
+
+.loop03__item {
+    flex: 0 0 auto;
+    font-size: rem(50);
+    white-space: nowrap;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.loop03__item:nth-child(odd) {
+    animation: loop 50s -25s linear infinite;
+}
+
+.loop03__item:nth-child(even) {
+    animation: loop2 50s linear infinite;
+}
+
+@keyframes loop {
+    0% {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes loop2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+
+
+
+.article {
+    color: #000;
+    padding-bottom: (112/16)+em;
+
+    &__inner {
+        @include inner();
+
+        @include mq-pc() {
+            width: 65%;
+        }
+    }
+
+    &__title {
+        font-size: rem(36);
+        font-weight: normal;
+        margin-bottom: (48/36)+em;
+        text-align: center;
+        letter-spacing: 0.1em;
+    }
+
+    &__process {
+        &::after {
+            content: "Production Process";
+            font-size: rem(14);
+        }
+    }
+
+    &__commentary {
+        &::after {
+            content: "Work Description";
+            font-size: rem(14);
+        }
+    }
+
+    &__through {
+        &::after {
+            content: "Through Production";
+            font-size: rem(14);
+        }
+    }
+
+    &__lead {
+        font-size: rem(20);
+        font-weight: normal;
+        border-bottom: 1px solid #000;
+        margin-bottom: (30/20)+em;
+    }
+
+    &__imgbox {
+        margin-bottom: (32/16)+em;
+
+        @include mq-pc() {
+            @include flex();
+            align-items: flex-start;
+        }
+    }
+
+    &__imgitem {
+        width: 100%;
+        height: 40vh;
+        border: 1px solid #ccc;
+
+        @include mq-pc() {
+            width: 45%;
+            height: 40vh;
+        }
+    }
+
+    &__img {
+        @include img();
+    }
+
+    &__thumb {
+        border: 1px solid #ccc;
+        margin-bottom: (16/16)+em;
+
+        @include mq-pc() {
+            width: 47%;
+            margin: 0;
+        }
+    }
+
+    &__txbox {
+        margin-bottom: (32/16)+em;
+    }
+
+    &__text {
+        margin-bottom: (20/16)+em;
+        line-height: (40/16)+em;
+    }
+
+    &__list {
+        padding: 0 0 0 (24/16)+em;
+        margin: (32/16)+em 0;
+        list-style: inherit;
+    }
+
+    &__item {
+        padding-left: (16/16)+em;
+        margin-bottom: (16/16)+em
+    }
+
+    &__box {
+        margin-bottom: (48/16)+em;
+
+        @include mq-pc() {
+            @include flex();
+            align-items: flex-start;
+        }
+    }
+
+    &__content {
+        margin-bottom: (96/16)+em;
+    }
+
+    &__explanation {
+        @include mq-pc() {
+            width: 45%;
+            line-height: 2.5em;
+        }
+    }
+
+    &__info {
+        margin-bottom: (80/16)+em;
+    }
+
+    &__impressions {
+        margin-bottom: (32/16)+em;
+        line-height: (40/16)+em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+
+
+    &__btn {
+        display: block;
+        width: 100%;
+        font-size: rem(20);
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: (20/20)+em 0;
+        color: #000;
+        text-align: center;
+        margin: 0 auto (60/20)+em auto;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            background-color: #000;
+            border: 1px solid #000;
+            color: #fff;
+        }
+
+        @include mq-pc() {
+            margin: 0;
+            width: 40%;
+        }
+    }
+
+    &__back {
+        display: block;
+        width: 100%;
+        font-size: rem(20);
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: (20/20)+em 0;
+        color: #000;
+        text-align: center;
+        margin: 0 auto (60/20)+em auto;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            background-color: #000;
+            border: 1px solid #000;
+            color: #fff;
+        }
+
+        @include mq-pc() {
+            margin: 0;
+            width: 100%;
+        }
+    }
+
+}
+
+/*mouse*/
+.mouse {
+    &__stalker {
+        display: none;
+        pointer-events: none;
+        position: fixed;
+        top: -40px;
+        left: -40px;
+        width: 80px;
+        height: 80px;
+        background: #000;
+        border: 1px solid #222;
+        border-radius: 50%;
+        transform: translate(0, 0);
+        transition: transform 0.3s;
+        transition: 0.3s;
+        transition-timing-function: ease-out;
+        z-index: 99999;
+        opacity: 0;
+
+        &.show {
+            opacity: 1;
+        }
+    }
+
+    &__text {
+        position: absolute;
+        top: 6px;
+        left: 16px;
+        text-align: center;
+        font-size: rem(14);
+        line-height: 1.5em;
+        color: #fff;
+        opacity: 0;
+
+        &.show {
+            opacity: 1;
+        }
+    }
+}
+
+
+@media (min-width: 960px) {
+    .mouse__stalker {
+        display: block;
+    }
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s, transform 1s;
+
+    &.fadeon {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

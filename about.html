@@ -1,0 +1,255 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ABOUT | Naruyoshi Portfolio</title>
+    <meta name="description" content="Naruyoshi Portfolio">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="og:title" content="Naruyoshi Portfolio">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Naruyoshi Portfolio">
+    <meta property="og:image" content="./img/DSCF6440.jpg">
+    <meta property="og:url" content="https://naru-hipu0901.sub.jp/portfolio/index.html">
+
+    <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
+    <link rel="icon" href="./img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVTW58TCTS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GVTW58TCTS');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/ScrollTrigger.min.js" defer></script>
+    <script src="./js/about.js" defer></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__box">
+                <h1 class="header__logobox"><a href="index.html"><img class="header__logo" src="./img/name3.png"
+                            alt="Naruyoshi Yokokuraのロゴ"></a></h1>
+                <div id="nav-wrapper" class="nav-wrapper">
+                    <div class="hamburger" id="js-hamburger">
+                        <span class="hamburger__line hamburger__line--1"></span>
+                        <span class="hamburger__line hamburger__line--2"></span>
+                        <span class="hamburger__line hamburger__line--3"></span>
+                    </div>
+                    <div class="sp-nav">
+                        <div class="sp__imgbox">
+                            <img class="sp__img" src="./img/DSCF6440.jpg" alt="Naruyoshi Yokokura">
+                        </div>
+                        <div class="nav">
+                            <div class="nav__imgbox">
+                                <img class="nav__img" src="./img/name3.png" alt="Naruyoshi Yokokuraのロゴ">
+                            </div>
+                            <nav class="nav__nav">
+                                <ul class="nav__list">
+                                    <li class="nav__item"><a class="nav__link" href="index.html">HOME</a></li>
+                                    <li class="nav__item"><a class="nav__link" href="about.html">ABOUT</a></li>
+                                    <li class="nav__item"><a class="nav__link" href="work.html">WORKS</a></li>
+                                    <li class="nav__item"><a class="nav__link" href="index.html#t-contact">CONTACT</a>
+                                    </li>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <section class="about">
+            <div class="about__inner">
+                <div class="about__box fade">
+                    <div class="about__profile">
+                        <h3 class="about__name">
+                            <img class="about__nameimg" src="./img/name2.png" alt="Naruyoshi">
+                        </h3>
+                        <h3 class="about__surname">横倉 成佳</h3>
+                        <p class="about__profession">FRONT END ENGINEER</p>
+                        <p class="about__text">トライデントコンピュータ専門学校 WEBデザイン学科2年生でフロントエンドエンジニアを目指し日々努力している学生です。
+                        </p>
+                    </div>
+                    <div class="about__imgbox">
+                        <img class="about__img" src="./img/DSCF6440.jpg" alt="Naruyoshi Yokokuraの自画像">
+                        <img class="about__sign" src="./img/name2.png" alt="Naruyoshi">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="history js-scroll-trigger">
+            <div class="history__inner">
+                <h2 class="history__title">History</h2>
+                <div class="history__wrapper">
+                    <div class="history__container js-list-container">
+                        <ol class="history__list js-list-element js-observe-target">
+                            <li class="history__item">
+                                <span class="history__point"></span>
+                                <dl class="history__content fade">
+                                    <dt class="history__time">2016/04</dt>
+                                    <dt class="history__heading">何かをすることが好きな少年</dt>
+                                    <dd class="history__text">
+                                        小学生の1〜6年の間、クラブチームでサッカーをやっており、中学校ではサッカー部がなかったためバレーボールを始める。<br>
+                                        小学校時代は苦手だった人前で話すことを変えたいため、中学校時代はクラスの学級委員や学校の生徒会など経験し、人前で話すことを得意にする。
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li class="history__item">
+                                <span class="history__point"></span>
+                                <dl class="history__content fade">
+                                    <dt class="history__time">2019/04</dt>
+                                    <dt class="history__heading">自分を変えたくて</dt>
+                                    <dd class="history__text">
+                                        中学生時代に職につながる好きなものや得意なものがあまりなく、時代的にパソコンが使えた方が良いということで名古屋市立工芸高等学校の情報科に入学。<br>
+                                        部活でバレーボールを継続しながら、この学校でゲーム制作、CG、動画、システムなどIT関連のことを広く学び、そこでwebサイト制作と出会う。
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li class="history__item">
+                                <span class="history__point"></span>
+                                <dl class="history__content fade">
+                                    <dt class="history__time">2020/09</dt>
+                                    <dt class="history__heading">「得意」「好き」を見つける</dt>
+                                    <dd class="history__text">
+                                        高校生活で色々なことを学び、web制作の書いたコードで自分のやりたいことを表現できるコーディングの楽しさを知り、web制作のコーダーを目指す。
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li class="history__item">
+                                <span class="history__point"></span>
+                                <dl class="history__content fade">
+                                    <dt class="history__time">2022/04</dt>
+                                    <dt class="history__heading">さらなる力をつけるべく</dt>
+                                    <dd class="history__text">
+                                        部活も引退して、進学を考える時期になり、webサイトのコーディングの楽しさを仕事にしたいと思い、トライデントコンピュータ専門学校のWebデザイン学科に入学する。<br>
+                                        同じ業界の志を持ったクラスメイトと出会い、この学校でwebについてのさらなる知識を学ぶ
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li class="history__item">
+                                <span class="history__point"></span>
+                                <dl class="history__content fade">
+                                    <dt class="history__time">2023/03</dt>
+                                    <dt class="history__heading">夢に近づくため</dt>
+                                    <dd class="history__text">
+                                        この学校でwebについて学び「フロントエンドエンジニア」という職業を知り、それになるべく現在も日々勉強に励む。
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="thought">
+            <div class="thought__inner">
+                <h2 class="thought__title">Thought</h2>
+                <div class="thought__box fade">
+                    <h3 class="thought__catch">「誰かに頼られたい、頼られる存在でありたい」</h3>
+                    <p class="thought__text">
+                        自分は一人で何かすることも好きだが、一番は誰かと何かをするのが好き。<br>
+                        頼られるというのは信頼関係、技術があってこそ、そんな存在になりたい。<br>
+                        そのために努力は惜しまない、その努力は頼られるためではなく自分のために。<br>
+                    </p>
+                </div>
+
+                <div class="thought__box fade">
+                    <h3 class="thought__catch">「成功の反対は何もやらないこと」</h3>
+                    <p class="thought__text">
+                        成功の反対は失敗でなく、何も行動にしないこと。<br>
+                        やってみなければわからないからこそ、やる前からできない、やりたくないではなく、一度考える、やってみる。<br>
+                        どんなことも”できない”の一言で片付けたくない。<br>
+                    </p>
+                </div>
+
+                <div class="thought__box fade">
+                    <h3 class="thought__catch">「多くのことをできるようになりたい」</h3>
+                    <p class="thought__text">
+                        フロントエンドエンジニアとしてその道の技術を伸ばすことは大事。<br>
+                        ただし、それだけを頑張るのではなく幅広く色々なことをできるようになりたい。<br>
+                        技術も伸ばしつつ、別の力も高める、「やりたい！」の好奇心は止めたくない。<br>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="skill">
+            <div class="skill__inner">
+                <h2 class="skill__title">Skill</h2>
+                <div class="skill__list">
+                    <div class="skill__item fade">
+                        <h3 class="skill__ability">Coding</h3>
+                        <p class="skill__text">
+                            デザインデータをHTMLとCSSを用いて、無駄なく綺麗なコードを心がけコーデイングをします。またJavaScriptを使用して、そのWebサイトに動きをつけ、アニメーションが施された目を引くデザインにすることも可能です。
+                        </p>
+                    </div>
+                    <div class="skill__item fade">
+                        <h3 class="skill__ability">Presentation</h3>
+                        <p class="skill__text">
+                            昔は苦手だった人前で話すことを克服し、今では得意な項目にすることができました。分かりやすい資料作り、理解しやすい内容の考案、聞き取りやすく相手を惹きつける話し方を考え表現することが得意です。
+                        </p>
+                    </div>
+                    <div class="skill__item fade">
+                        <h3 class="skill__ability">Communication</h3>
+                        <p class="skill__text">
+                            アルバイトでも接客業をし、普段から話をよくするタイプな為、幅広い年齢層の方とコミュニケーションを取るのが得意です。職場方やクライアントの方との円滑なコミュニケーションに貢献することが可能です。
+                        </p>
+                    </div>
+                    <div class="skill__item fade">
+                        <h3 class="skill__ability">Design</h3>
+                        <p class="skill__text">
+                            デザインスキルにおいても、数多くのサイトを拝見したり、美術館に訪れるなど日々技術、能力を上げられるよう努力しております。そこで受けたインスピレーションや知見などを制作物やチーム制作に落とし込むことが可能です。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="comment">
+            <div class="comment__inner">
+                <h2 class="comment__title">Comment</h2>
+                <div class="comment__content fade">
+                    <p class="comment__text">この度は当ポートフォリオサイトにお越しいただきありがとうございます。横倉成佳と申します。 <br>
+                        こちらは自分のプライベート面などを記載しておくところになりますので、気になる方がいらっしゃいましたら、お読みいただけると幸いです。
+                    </p>
+                    <p class="comment__text">2003年5月14日生まれ、愛知県稲沢市出身の牡牛座AB型です。<br>
+                        フロントエンドエンジニアを目指し、日々勉強しております。
+                    </p>
+                    <p class="comment__text">
+                        自分を簡単に表すと、みんなからはよく話し、よく笑い、明るく、何事にも楽しそうに挑戦する人だと言われます。<br>
+                        自分の考え方としては、どれだけ苦手なものでもその中から楽しさを見つけ、その楽しさからそれを好きにしていくのがとても得意です。<br>現に上記にも記載した通り、本当に昔は人前で話すことが苦手でした。ですが苦手というのを変えたくて、学級委員や生徒会を経験し、それをやっていくうちに苦手から逆に得意、好きに変えることができました。
+                    </p>
+                    <p class="comment__text">
+                        好きなことでいうと、人と話したり出掛けたりするアウトドアタイプではあるのですが、特にスニーカーが好きです。毎日何を履くか悩むのが、幸せでもあります。あとK-POPをよく聞きます。特にBTSというアイドルが中学2年くらいからずっと好きでライブなどにも参加するくらい好きです。
+                    </p>
+                    <p class="comment__text">
+                        昔からスポーツなどをずっと行っていたので、何かをやり続けるという継続力とやり遂げるという完遂力はあると思います。それとなんと言っても、ガッツは人一倍高いと思います。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner">
+            <img class="footer__logo" src="./img/name4.png" alt="Naruyoshi Yokokuraのロゴ">
+            <ul class="footer__list">
+                <li class="footer__item"><a class="footer__link" href="index.html">HOME</a></li>
+                <li class="footer__item"><a class="footer__link" href="about.html">ABOUT</a></li>
+                <li class="footer__item"><a class="footer__link" href="work.html">WORKS</a></li>
+                <li class="footer__item"><a class="footer__link" href="index.html#t-contact">CONTACT</a></li>
+            </ul>
+            <p class="footer__copy"><small>All Rights Reserved 2023 ©︎ Naruyoshi Yokokura</small></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
